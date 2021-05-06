@@ -51,6 +51,40 @@ Route::namespace('App\Http\Livewire')->group(function()
         Route::get('developer', Developer::class)->name('developer');
         
     });
+    
+    
+    // Admin
+    Route::middleware(['auth', 'admin'])->namespace('Admin\Page')->name('admin.')->prefix('admin')->group(function()
+    {
+        // Dashboard
+        Route::get('dashboard', Dashboard::class)->name('dashboard');
+
+        // Product
+        Route::namespace('Product')->name('product.')->prefix('product')->group(function()
+        {
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+            
+            Route::namespace('Category')->name('category.')->prefix('category')->group(function()
+            {
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+            
+            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
+            {
+                Route::get('index', Index::class)->name('index');
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+            
+            Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function()
+            {
+                Route::get('create', Create::class)->name('create');
+                Route::get('edit/{id}', Edit::class)->name('edit');
+            });
+        });
+    });
 });
 
 
