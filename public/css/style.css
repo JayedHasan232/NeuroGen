@@ -327,7 +327,7 @@ a:hover {
     -o-transition: height .2s ease;
     transition: height .2s ease; }
   .uni-main-menu .cssmenu ul li:hover > ul > li {
-    height: 70px; }
+    height: auto; }
   .uni-main-menu .cssmenu ul ul li a {
     display: block;
     font-family: 'Poppins';
@@ -598,10 +598,23 @@ a:hover {
   .mobile-nav .navbar-toggle .icon-bar {
     display: inline-block; } }
 
+.navs-appointment{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /*SEARCH AND APPOINTMENT*/
 .uni-search-appointment {
   float: right;
-  padding: 26px 0; }
+  padding: 0;
+}
+.uni-search-appointment ul{
+  margin: 0;
+}
+.uni-search-appointment ul li{
+  margin: 0;
+}
+
   @media screen and (max-width: 991px) {
     .uni-search-appointment {
       display: none; } }

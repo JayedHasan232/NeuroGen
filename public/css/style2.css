@@ -1,29 +1,50 @@
-
 /* Navbar Style Css */
-
-.header-topbar.style-2 {
-    background-color: #f7f7f7;
-    color: #777;
-/*    padding: 10px 0;*/
+.header-topbar {
+  background-color: #01b636;
 }
 
-.header-topbar.style-2 .icon-style-1 li {
-    background-color: #01b636;
-    border: 1px solid #e9e9e9;
+.header-topbar .container {
+  height: auto;
 }
 
-
-/* Defualt Theme Css */ 
-
-.icon-style-1 li {
-    background: #111;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
+.header-topbar .container .social-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: .5em;
+  color: #777;
+  margin: 0;
+  padding: .5em 0;
 }
 
-.icon-style-1 li a {
-    color: #FFF;
-    display: block;
+.header-topbar .container .social-links .list-item {
+  background-color: #01b636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  border: 1px solid #fff;
+  line-height: auto;
+  border-radius: .5em;
+  overflow: hidden;
+  transition: 0.125s;
 }
+
+.header-topbar .container .social-links .list-item .link {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.125s;
+}
+
+.header-topbar .container .social-links .list-item:hover {
+  background-color: #fff;
+}
+
+.header-topbar .container .social-links .list-item:hover .link {
+  color: #01b636;
+}
+/*# sourceMappingURL=style2.css.map */

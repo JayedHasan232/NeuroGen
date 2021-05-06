@@ -5,20 +5,23 @@
                 <div class="col-md-2">
                     <!--LOGO-->
                     <div class="wrapper-logo">
-                        <a class="logo-default" href="index.html"><img src="images/logo.png" alt="" class="img-responsive"></a>
+                        <a class="logo-default" href="/">
+                            <img src="images/logo.png" alt="" class="img-responsive">
+                        </a>
                         <div class="clearfix"></div>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 navs-appointment">
                     <!--MENU TEXT-->
                     <div class="uni-main-menu">
                         <nav class="main-navigation uni-menu-text">
                             <div class="cssmenu">
                                 <ul>
-                                    <li class="has-sub"><a href="index.html">Home</a>
+                                    <li class="has-sub">
+                                        <a href="/">Home</a>
                                         <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="{{ route('app.about') }}">About Us</a></li>
+                                            <li><a href="{{ route('app.contact') }}">Contact Us</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-sub"><a href='#'>Healthcare Service</a>
@@ -45,10 +48,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="research.html">Research</a></li>
-                                    <li><a href='#'>Blog</a> </li>
-                                    <li><a href='gallery.html'>Gallery</a></li>
-                                    <li><a href='#'>Careers</a> </li>
+                                    <li><a href="{{ route('app.research') }}">Research</a></li>
+                                    <li><a href="{{ route('app.blog') }}">Blog</a> </li>
+                                    <li><a href="{{ route('app.gallery') }}">Gallery</a></li>
+                                    <li><a href="{{ route('app.career') }}">Career</a> </li>
                                 </ul>
                             </div>
                         </nav>
@@ -58,7 +61,7 @@
                     <div class="uni-search-appointment">
                         <ul>
                             <li class="uni-btn-appointment">
-                                <a href="appointment.html">Appointment</a>
+                                <a href="{{ route('app.appointment') }}">Appointment</a>
                             </li>
                         </ul>
                     </div>

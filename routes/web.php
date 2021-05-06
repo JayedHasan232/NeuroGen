@@ -28,16 +28,23 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::namespace('App\Http\Livewire')->group(function()
 {
     // App
-    Route::namespace('App\Page')->group(function()
+    Route::namespace('App\Page')->name('app.')->group(function()
     {
         Route::get('research', Research::class)->name('research');
         
+        // Services
+        Route::get('services', Services\Index::class)->name('services');
+        Route::get('services/{url}', Services\Show::class)->name('services.show');
+        
+        // Blog
+        Route::get('blog', Blog\Index::class)->name('blog');
+        Route::get('blog/{url}', Blog\Show::class)->name('blog.show');
+        
         // Gallery
         Route::get('gallery', Gallery::class)->name('gallery');
-        
-        // // Blog
-        // Route::get('blog', Blog\Index::class)->name('blog');
-        // Route::get('blog/{url}', Blog\Show::class)->name('blog.show');
+
+        Route::get('career', Career::class)->name('career');
+        Route::get('appointment', Appointment::class)->name('appointment');
 
         Route::get('about', About::class)->name('about');
         Route::get('contact', Contact::class)->name('contact');
