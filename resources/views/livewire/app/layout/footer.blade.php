@@ -35,11 +35,11 @@
                             <div class="widget-content">
                                 <div class="uni-quick-link">
                                     <ul>
-                                        <li><a href="index.html"><span>+</span> Home</a></li>
-                                        <li><a href="about.html"><span>+</span> about</a></li>
+                                        <li><a href="/"><span>+</span> Home</a></li>
+                                        <li><a href="{{ route('app.about') }}"><span>+</span> about</a></li>
                                         <li><a href="services.html"><span>+</span> services</a></li>
-                                        <li><a href="contact.html"><span>+</span> contact</a></li>
-                                        <li><a href="appointment.html"><span>+</span> appointment</a></li>
+                                        <li><a href="{{ route('app.contact') }}"><span>+</span> contact</a></li>
+                                        <li><a href="{{ route('app.appointment') }}"><span>+</span> appointment</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -82,8 +82,7 @@
             <div class="copyright-content">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p class="copyright-text">Copyright &copy;2021 All Rights Reserved by NeuroGen |
-                            Made by Ashik Al Habib</p>
+                        <p class="copyright-text">Copyright &copy;2021 All Rights Reserved by NeuroGen | Designed by Ashik Al Habib</p>
                     </div>
 
                 </div>
