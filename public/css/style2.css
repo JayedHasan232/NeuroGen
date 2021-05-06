@@ -1,0 +1,29 @@
+
+/* Navbar Style Css */
+
+.header-topbar.style-2 {
+    background-color: #f7f7f7;
+    color: #777;
+/*    padding: 10px 0;*/
+}
+
+.header-topbar.style-2 .icon-style-1 li {
+    background-color: #01b636;
+    border: 1px solid #e9e9e9;
+}
+
+
+/* Defualt Theme Css */ 
+
+.icon-style-1 li {
+    background: #111;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.icon-style-1 li a {
+    color: #FFF;
+    display: block;
+}
