@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Page;
+namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 
@@ -55,6 +55,6 @@ class SiteInfo extends Component
 
     public function render()
     {
-        return view('livewire.admin.page.site-info')->extends('layouts.admin');
+        return view('livewire.admin.site-info')->extends('layouts.admin');
     }
 }

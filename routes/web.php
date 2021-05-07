@@ -54,14 +54,13 @@ Route::namespace('App\Http\Livewire')->group(function()
     
     
     // Admin
-    Route::middleware(['auth', 'admin'])->namespace('Admin\Page')->name('admin.')->prefix('admin')->group(function()
+    Route::middleware(['auth', 'admin'])->namespace('Admin')->name('admin.')->prefix('admin')->group(function()
     {
         // Dashboard
         Route::get('dashboard', Dashboard::class)->name('dashboard');
 
-        // Product
-        Route::namespace('Product')->name('product.')->prefix('product')->group(function()
-        {
+        // Blog
+        Route::namespace('Blog')->name('blog.')->prefix('blog')->group(function(){
             Route::get('create', Create::class)->name('create');
             Route::get('edit/{id}', Edit::class)->name('edit');
             
@@ -76,6 +75,49 @@ Route::namespace('App\Http\Livewire')->group(function()
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
+        });
+
+        // Team
+        Route::namespace('Team')->name('team.')->prefix('team')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+
+        // Slider
+        Route::namespace('Slider')->name('slider.')->prefix('slider')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+
+        // OpeningHour
+        Route::get('opening-hour', OpeningHour::class)->name('opening-hour');
+
+        // Appoitment
+        Route::get('appoitment', Appoitment::class)->name('appoitment');
+
+        // FAQ
+        Route::namespace('Faq')->name('faq.')->prefix('faq')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+        
+        // Gallery
+        Route::namespace('Gallery')->name('gallery.')->prefix('gallery')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+        
+        // Career
+        Route::namespace('Career')->name('career.')->prefix('career')->group(function(){
+            Route::get('applications', Applications::class)->name('applications');
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+        
+        // Research
+        Route::namespace('Research')->name('research.')->prefix('research')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
         });
         
         // Site Informations

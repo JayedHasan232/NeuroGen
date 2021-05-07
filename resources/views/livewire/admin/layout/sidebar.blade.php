@@ -3,29 +3,64 @@
         <li class="sb-item" id="items">
             <a href="{{ route('admin.dashboard') }}" class="sb-link active">Dashboard</a>
         </li>
-        {{--<li class="sb-item" id="products">
-            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">Product</a>
-            <ul class="collapse sbc-list" id="collapseProduct" aria-labelledby="headingProduct" data-bs-parent="#sidebarAccordion">
-                <li class="sbc-item"><a href="{{ route('admin.product.create') }}" class="sbc-link">Create</a></li>
+
+        <!-- Team -->
+        <li class="sb-item">
+            <a href="{{ route('admin.team.create') }}" class="sb-link">Team</a>
+        </li>
+
+        <!-- Slider -->
+        <li class="sb-item">
+            <a href="{{ route('admin.slider.create') }}" class="sb-link">Slider</a>
+        </li>
+
+        <!-- OpeningHours -->
+        <li class="sb-item">
+            <a href="{{ route('admin.opening-hour') }}" class="sb-link">Opening Hours</a>
+        </li>
+
+        <!-- Appoitment -->
+        <li class="sb-item">
+            <a href="{{ route('admin.appoitment') }}" class="sb-link">Appoitments</a>
+        </li>
+
+        <!-- Blog -->
+        <li class="sb-item" id="blog">
+            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseBlog" aria-expanded="true" aria-controls="collapseBlog">Blog</a>
+            <ul class="collapse sbc-list" id="collapseBlog" aria-labelledby="headingBlog" data-bs-parent="#sidebarAccordion">
+                <li class="sbc-item"><a href="{{ route('admin.blog.create') }}" class="sbc-link">Post</a></li>
+                <li class="sbc-item"><a href="{{ route('admin.blog.category.create') }}" class="sbc-link">Category</a></li>
+                <li class="sbc-item"><a href="{{ route('admin.blog.sub-category.create') }}" class="sbc-link">Sub Category</a></li>
             </ul>
         </li>
-        <li class="sb-item" id="category">
-            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseCategory" aria-expanded="true" aria-controls="collapseCategory">Category</a>
-            <ul class="collapse sbc-list" id="collapseCategory" aria-labelledby="headingCategory" data-bs-parent="#sidebarAccordion">
-                <li class="sbc-item"><a href="{{ route('admin.product.category.create') }}" class="sbc-link">Create</a></li>
+
+        <!-- FAQs -->
+        <li class="sb-item">
+            <a href="{{ route('admin.faq.create') }}" class="sb-link">FAQs</a>
+        </li>
+
+        <!-- Gallery -->
+        <li class="sb-item">
+            <a href="{{ route('admin.gallery.create') }}" class="sb-link">Gallery</a>
+        </li>
+
+        <!-- Career -->
+        <li class="sb-item" id="career">
+            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseCareer" aria-expanded="true" aria-controls="collapseCareer">Career</a>
+            <ul class="collapse sbc-list" id="collapseCareer" aria-labelledby="headingCareer" data-bs-parent="#sidebarAccordion">
+                <a href="{{ route('admin.career.create') }}" class="sb-link">Job Post</a>
+                <a href="{{ route('admin.career.applications') }}" class="sb-link">Applications</a>
             </ul>
         </li>
-        <li class="sb-item" id="sub-category">
-            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseSubCategory" aria-expanded="true" aria-controls="collapseSubCategory">Sub Category</a>
-            <ul class="collapse sbc-list" id="collapseSubCategory" aria-labelledby="headingSubCategory" data-bs-parent="#sidebarAccordion">
-                <li class="sbc-item"><a href="{{ route('admin.product.sub-category.create') }}" class="sbc-link">Create</a></li>
-            </ul>
+
+        <!-- Research -->
+        <li class="sb-item">
+            <a href="{{ route('admin.research.create') }}" class="sb-link">Research</a>
         </li>
-        <li class="sb-item"><a href="#" class="sb-link">Users</a></li>--}}
 
         <!-- Site Informations -->
         <li class="sb-item" id="items">
-            <a href="{{ route('admin.site-info') }}" class="sb-link active">Site Informations</a>
+            <a href="{{ route('admin.site-info') }}" class="sb-link">Site Informations</a>
         </li>
     </ul>
-</nav>
+</nav>  
