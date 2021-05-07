@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\App\Layout;
+namespace App\Http\Livewire\Admin\Page;
 
 use Livewire\Component;
 
 use App\Models\SiteInfo as Info;
 
-class Footer extends Component
+class SiteInfo extends Component
 {
     public $name, $domain, $mobile, $email, $google_map, $address, $overview, $facebook_page, $facebook_group, $twitter, $linkedin, $youtube;
     
@@ -27,9 +27,34 @@ class Footer extends Component
         $this->linkedin = $info->linkedin ?? '';
         $this->youtube = $info->youtube ?? '';
     }
-    
+
+    public function updateInfo()
+    {
+        $info = Info::find(1);
+
+        $info->name = $this->name;
+        $info->domain = $this->domain;
+        $info->mobile = $this->mobile;
+        $info->email = $this->email;
+        $info->google_map = $this->google_map;
+        $info->address = $this->address;
+        $info->overview = $this->overview;
+        $info->facebook_page = $this->facebook_page;
+        $info->facebook_group = $this->facebook_group;
+        $info->twitter = $this->twitter;
+        $info->linkedin = $this->linkedin;
+        $info->youtube = $this->youtube;
+        
+        $info->updated_by = auth()->id();
+        $info->updated_at = now();
+
+        $info->save();
+
+        return back()->with('success', 'Success!');
+    }
+
     public function render()
     {
-        return view('livewire.app.layout.footer');
+        return view('livewire.admin.page.site-info')->extends('layouts.admin');
     }
 }

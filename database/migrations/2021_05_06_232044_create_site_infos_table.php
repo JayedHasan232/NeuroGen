@@ -27,7 +27,8 @@ class CreateSiteInfosTable extends Migration
             $table->text('logo')->nullable();
             $table->text('favicon')->nullable();
             
-            $table->string('facebook')->nullable();
+            $table->string('facebook_page')->nullable();
+            $table->string('facebook_group')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();

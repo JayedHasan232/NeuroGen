@@ -71,19 +71,15 @@ Route::namespace('App\Http\Livewire')->group(function()
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
             
-            Route::namespace('Brand')->name('brand.')->prefix('brand')->group(function()
-            {
-                Route::get('index', Index::class)->name('index');
-                Route::get('create', Create::class)->name('create');
-                Route::get('edit/{id}', Edit::class)->name('edit');
-            });
-            
             Route::namespace('SubCategory')->name('sub-category.')->prefix('sub-category')->group(function()
             {
                 Route::get('create', Create::class)->name('create');
                 Route::get('edit/{id}', Edit::class)->name('edit');
             });
         });
+        
+        // Site Informations
+        Route::get('site-informations', SiteInfo::class)->name('site-info');
     });
 });
 

@@ -3,17 +3,10 @@
         <li class="sb-item" id="items">
             <a href="{{ route('admin.dashboard') }}" class="sb-link active">Dashboard</a>
         </li>
-        <li class="sb-item" id="products">
+        {{--<li class="sb-item" id="products">
             <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">Product</a>
             <ul class="collapse sbc-list" id="collapseProduct" aria-labelledby="headingProduct" data-bs-parent="#sidebarAccordion">
                 <li class="sbc-item"><a href="{{ route('admin.product.create') }}" class="sbc-link">Create</a></li>
-            </ul>
-        </li>
-        <li class="sb-item" id="brand">
-            <a class="sb-link" data-bs-toggle="collapse" data-bs-target="#collapseBrand" aria-expanded="true" aria-controls="collapseBrand">Brand</a>
-            <ul class="collapse sbc-list" id="collapseBrand" aria-labelledby="headingBrand" data-bs-parent="#sidebarAccordion">
-                <li class="sbc-item"><a href="{{ route('admin.product.brand.create') }}" class="sbc-link">Create</a></li>
-                <li class="sbc-item"><a href="{{ route('admin.product.brand.index') }}" class="sbc-link">Index</a></li>
             </ul>
         </li>
         <li class="sb-item" id="category">
@@ -28,6 +21,11 @@
                 <li class="sbc-item"><a href="{{ route('admin.product.sub-category.create') }}" class="sbc-link">Create</a></li>
             </ul>
         </li>
-        <li class="sb-item"><a href="#" class="sb-link">Users</a></li>
+        <li class="sb-item"><a href="#" class="sb-link">Users</a></li>--}}
+
+        <!-- Site Informations -->
+        <li class="sb-item" id="items">
+            <a href="{{ route('admin.site-info') }}" class="sb-link active">Site Informations</a>
+        </li>
     </ul>
 </nav>

@@ -1,4 +1,4 @@
-<form class="box" action="{{ route('admin.brands.store') }}" method="post" enctype= multipart/form-data>
+<form class="box" action="{{ route('admin.brands.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     
     <div class="header">
