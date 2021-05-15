@@ -67,7 +67,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="//twitter.com/{{ $twitter }}"
+                                                <a href="//www.twitter.com/{{ $twitter }}"
                                                     target="_blank">
                                                     <i class="fa fa-twitter"
                                                     aria-hidden="true"></i>

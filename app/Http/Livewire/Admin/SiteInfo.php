@@ -29,26 +29,42 @@ class SiteInfo extends Component
     }
 
     public function updateInfo()
-    {
-        $info = Info::find(1);
-
-        $info->name = $this->name;
-        $info->domain = $this->domain;
-        $info->mobile = $this->mobile;
-        $info->email = $this->email;
-        $info->google_map = $this->google_map;
-        $info->address = $this->address;
-        $info->overview = $this->overview;
-        $info->facebook_page = $this->facebook_page;
-        $info->facebook_group = $this->facebook_group;
-        $info->twitter = $this->twitter;
-        $info->linkedin = $this->linkedin;
-        $info->youtube = $this->youtube;
-        
-        $info->updated_by = auth()->id();
-        $info->updated_at = now();
-
-        $info->save();
+    {        
+        if(!Info::find(1)){
+            Info::create([
+                'name' => $this->name,
+                'domain' => $this->domain,
+                'mobile' => $this->mobile,
+                'email' => $this->email,
+                'google_map' => $this->google_map,
+                'address' => $this->address,
+                'overview' => $this->overview,
+                'facebook_page' => $this->facebook_page,
+                'facebook_group' => $this->facebook_group,
+                'twitter' => $this->twitter,
+                'linkedin' => $this->linkedin,
+                'youtube' => $this->youtube,                
+                'created_by' => auth()->id(),
+                'created_at' => now(),
+            ]);
+        }else{
+            Info::find(1)->update([
+                'name' => $this->name,
+                'domain' => $this->domain,
+                'mobile' => $this->mobile,
+                'email' => $this->email,
+                'google_map' => $this->google_map,
+                'address' => $this->address,
+                'overview' => $this->overview,
+                'facebook_page' => $this->facebook_page,
+                'facebook_group' => $this->facebook_group,
+                'twitter' => $this->twitter,
+                'linkedin' => $this->linkedin,
+                'youtube' => $this->youtube,                
+                'updated_by' => auth()->id(),
+                'updated_at' => now(),
+            ]);
+        }
 
         return back()->with('success', 'Success!');
     }

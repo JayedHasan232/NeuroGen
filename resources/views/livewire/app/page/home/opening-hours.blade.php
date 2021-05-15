@@ -12,30 +12,12 @@
                         </div>
                         <div class="uni-services-opinging-hours-content">
                             <table class="table">
+                                @foreach($opening_hours as $time)
                                 <tr>
-                                    <td>Saturday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
+                                    <td>{{ $time->day }}</td>
+                                    <td>{{ $time->from }} - {{ $time->to }}</td>
                                 </tr>
-                                <tr>
-                                    <td>sunday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>monday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>tuesday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>wednesday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <td>thursday</td>
-                                    <td>10:00 AM - 09:00 PM</td>
-                                </tr>
+                                @endforeach
                             </table>
                         </div>
                     </div>
