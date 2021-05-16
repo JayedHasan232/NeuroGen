@@ -1,6 +1,6 @@
 <form wire:submit.prevent="store" class="box">
     <div class="header">
-        Edit Team
+        Edit Team Member
 
         @if(session('success'))
         <span class="text-success ms-2">

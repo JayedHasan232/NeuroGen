@@ -78,6 +78,13 @@
                                                     <li>
                                                         <a href="mailto: farjanaslt@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                                                     </li>
+                                                    @auth()
+                                                        @if(Auth::user()->role != 0)
+                                                        <li>
+                                                            <a href="{{ route('admin.team.edit', $member->id) }}" target="_blank"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                        </li>
+                                                        @endif
+                                                    @endauth
                                                 </ul>
                                             </td>
                                         </tr>
