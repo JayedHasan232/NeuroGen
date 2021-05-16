@@ -18,8 +18,8 @@ class CreateResearchTable extends Migration
             $table->boolean('privacy')->default(true);
             $table->string('title');
             $table->string('date')->nullable();
-            $table->text('source')->nullable();
             $table->text('overview');
+            $table->text('source')->nullable();
 
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();

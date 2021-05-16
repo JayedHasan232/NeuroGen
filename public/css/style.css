@@ -139,6 +139,9 @@ a:hover {
 .uni-uppercase {
   text-transform: uppercase; }
 
+.uni-background-1 {
+  background: url("../images/banner/background1.png"); }
+
 .is-sticky {
   position: relative;
   z-index: 9999; }
@@ -2353,7 +2356,7 @@ a:hover {
 
 /*Services*/
 .uni-services-body {
-  padding: 100px 0; }
+  padding: 0; }
   .uni-services-body .uni-services-title h3 {
     font-family: 'Poppins';
     font-size: 36px;
