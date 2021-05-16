@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarouselsTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateCarouselsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carousels', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
             $table->smallInteger('position')->nullable();
             $table->string('title');
             $table->text('overview');
+            
+            $table->text('link');
+            $table->string('link_title');
             
             $table->text('image')->nullable();
             $table->text('image_medium')->nullable();
@@ -37,6 +40,6 @@ class CreateCarouselsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carousels');
+        Schema::dropIfExists('sliders');
     }
 }
