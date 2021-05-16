@@ -32,6 +32,16 @@ Route::namespace('App\Http\Livewire')->group(function()
     {
         Route::get('research', Research::class)->name('research');
         
+        // Healthcare Services
+        Route::name('healthcare.')->prefix('healthcare')->group(function()
+        {
+            Route::namespace('Team')->name('team.')->group(function()
+            {
+                Route::get('{type}', Index::class)->name('index');
+                Route::get('{type}/{url}', Show::class)->name('show');
+            });
+        });
+
         // Services
         Route::get('services', Services\Index::class)->name('services');
         Route::get('services/{url}', Services\Show::class)->name('services.show');

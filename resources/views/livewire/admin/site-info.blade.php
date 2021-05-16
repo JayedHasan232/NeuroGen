@@ -14,7 +14,7 @@
     </div>
     <div class="body">
 
-        <div class="row g-4 mb-4">
+        <div class="row g-3 mb-4">
             <div class="form-group col-md-4">
                 <label for="name">Name</label>
                 <input wire:model="name" class="form-control @error('name') is-invalid @enderror" type="text" id="name" placeholder="Name">

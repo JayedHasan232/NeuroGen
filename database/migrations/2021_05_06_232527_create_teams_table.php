@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->smallInteger('position')->nullable();
             $table->string('member_type');
             $table->string('name');
+            $table->string('url');
             $table->string('designation');
             $table->string('degrees');
             $table->string('email')->nullable();

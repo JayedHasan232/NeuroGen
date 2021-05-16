@@ -6,7 +6,7 @@
                     <!--LOGO-->
                     <div class="wrapper-logo">
                         <a class="logo-default" href="/">
-                            <img src="images/logo.png" alt="" class="img-responsive">
+                            <img src="/images/logo.png" alt="" class="img-responsive">
                         </a>
                         <div class="clearfix"></div>
                     </div>
@@ -28,12 +28,12 @@
                                         <ul>
                                             <li class="has-sub"><a href="#">Clinics</a>
                                                 <ul>
-                                                    <li><a href="doctors_list.html">Doctors List</a></li>
+                                                    <li><a href="{{ route('app.healthcare.team.index', 'doctors') }}">Doctors List</a></li>
                                                 </ul>
                                             </li>
                                             <li class="has-sub"><a href="#">Genetics and Genomic Medicine Centre</a>
                                                 <ul>
-                                                    <li><a href="Labpersonnel_list.html">Genetic Laboratory Personnel</a></li>
+                                                    <li><a href="{{ route('app.healthcare.team.index', 'lab-personnel') }}">Genetic Laboratory Personnel</a></li>
                                                     <li><a href="genetic_test.html">Genetic Tests</a></li>
                                                 </ul>
                                             </li>
@@ -41,9 +41,9 @@
                                                 <ul>
                                                     <li><a href="dca.html">Deep Clinical Assessment</a></li>
                                                     <li><a href="therapeutics.html">Therapeutics</a></li>
-                                                    <li><a href="psychologists.html">Clinical Psychologists</a></li>
-                                                    <li><a href="therapists.html">Therapists</a></li>
-                                                    <li><a href="nutrition.html">Nutritional Guidance</a></li>
+                                                    <li><a href="{{ route('app.healthcare.team.index', 'psychologists') }}">Clinical Psychologists</a></li>
+                                                    <li><a href="{{ route('app.healthcare.team.index', 'therapists') }}">Therapists</a></li>
+                                                    <li><a href="{{ route('app.healthcare.team.index', 'nutritionists') }}">Nutritional Guidance</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
