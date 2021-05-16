@@ -16,9 +16,9 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
+            $table->smallInteger('type')->default(1);
             $table->string('title')->nullable();
             $table->text('source')->nullable();
-            $table->string('file_type');
 
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();

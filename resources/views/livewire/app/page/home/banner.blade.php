@@ -2,7 +2,7 @@
     <div class="uni-owl-one-item owl-carousel owl-theme">
         @foreach($sliders as $slider)
         <div class="item">
-            <div class="uni-banner-img" style='background: url({{ asset("storage/$slider->image") }}) no-repeat;'></div>
+            <div class="uni-banner-img" style="background: url({{ asset('storage/' . $slider->image) }}) no-repeat;"></div>
             <div class="content animated" data-animation="flipInX" data-delay="0.9s">
                 <div class="container">
                     <div class="caption">
