@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Team;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use Str;
 use App\Models\Team;
 
 class Create extends Component
@@ -20,6 +21,11 @@ class Create extends Component
     public $email;
     public $image;
     public $summary;
+
+    public function updatedName()
+    {
+        $this->url = Str::slug($this->name);
+    }
 
     public function store()
     {

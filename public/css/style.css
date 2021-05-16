@@ -139,27 +139,6 @@ a:hover {
 .uni-uppercase {
   text-transform: uppercase; }
 
-.uni-background-1 {
-  background: url("../images/banner/background1.png"); }
-
-.uni-background-2 {
-  background: url("../images/icons_box/background2.png") no-repeat; }
-
-.uni-background-3 {
-  background: url("../images/counter/background4.png") no-repeat; }
-
-.uni-background-4 {
-  background: url("../images/services/background3.png") no-repeat; }
-
-.uni-background-5 {
-  background: url("../images/team/background.jpg") no-repeat; }
-
-.uni-background-6 {
-  background: url("../images/team/background2.jpg") no-repeat; }
-
-.uni-background-7 {
-  background: url("../images/team/background3.jpg") no-repeat; }
-
 .is-sticky {
   position: relative;
   z-index: 9999; }

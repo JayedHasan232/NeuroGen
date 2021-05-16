@@ -27,61 +27,10 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group col-md-2">
-                <label for="type">Type</label>
-                <select wire:model="type" class="form-control @error('type') is-invalid @enderror">
-                    <option value="1">Doctor</option>
-                    <option value="2">Lab Personel</option>
-                    <option value="3">Psychologists</option>
-                    <option value="4">Therapists</option>
-                    <option value="5">Nutritionist</option>
-                </select>
-                @error('type')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-4">
-                <label for="name">Name</label>
-                <input wire:model="name" class="form-control @error('name') is-invalid @enderror" type="text" id="name" placeholder="Name">
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-4">
-                <label for="url">URL</label>
-                <input wire:model="url" class="form-control @error('url') is-invalid @enderror" type="text" id="url" placeholder="URL">
-                @error('url')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-4">
-                <label for="designation">Designation</label>
-                <input wire:model="designation" class="form-control @error('designation') is-invalid @enderror" type="text" id="designation" placeholder="Designation">
-                @error('designation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-4">
-                <label for="degrees">Degrees</label>
-                <input wire:model="degrees" class="form-control @error('degrees') is-invalid @enderror" type="text" name="degrees" id="degrees" placeholder="Separate by comma (,)">
-                @error('degrees')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-4">
-                <label for="email">Email</label>
-                <input wire:model="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" id="email" placeholder="Email">
-                @error('email')
+            <div class="form-group col-md-6">
+                <label for="title">Title</label>
+                <input wire:model="title" class="form-control @error('title') is-invalid @enderror" type="text" id="title" placeholder="Title">
+                @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -96,11 +45,29 @@
                     </span>
                 @enderror
             </div>
+            <div class="form-group col-md-9">
+                <label for="link">Link</label>
+                <input wire:model="link" class="form-control @error('link') is-invalid @enderror" type="text" id="link" placeholder="[Optional]">
+                @error('link')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-3">
+                <label for="link_title">Link Title</label>
+                <input wire:model="link_title" class="form-control @error('link_title') is-invalid @enderror" type="text" id="link_title" placeholder="[Optional]">
+                @error('link_title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
             <div class="form-group col-md-12">
-                <label for="summary">Summary</label>
-                <textarea wire:model="summary" class="form-control @error('summary') is-invalid @enderror" type="text" name="summary" id="summary" placeholder="Summary"></textarea>
-                @error('summary')
+                <label for="overview">Overview</label>
+                <textarea wire:model="overview" class="form-control @error('overview') is-invalid @enderror" type="text" name="overview" id="overview" placeholder="Overview"></textarea>
+                @error('overview')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

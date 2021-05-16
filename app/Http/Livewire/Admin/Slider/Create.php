@@ -16,15 +16,21 @@ class Create extends Component
     public $overview;
     public $link;
     public $link_title;
+    public $image;
 
     public function store()
     {
         $this->validate([
+            'privacy' => 'required',
             'title' => 'required',
             'overview' => 'required',
+            'link' => 'required',
+            'link_title' => 'required',
+            'image' => 'required|image',
         ]);
 
         $slider = Slider::create([
+            'privacy' => $this->privacy,
             'title' => $this->title,
             'overview' => $this->overview,
             'link' => $this->link,
@@ -42,7 +48,7 @@ class Create extends Component
 
         return back()->with('success', 'Success!');
     }
-    
+
     public function render()
     {
         return view('livewire.admin.slider.create')->extends('layouts.admin');
