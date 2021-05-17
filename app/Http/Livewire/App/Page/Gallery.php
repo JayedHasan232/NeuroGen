@@ -8,13 +8,19 @@ use App\Models\Gallery as Item;
 
 class Gallery extends Component
 {
-    public $images;
-    public $videos;
+    public $identifier;
+    public $images = [];
+    public $videos = [];
 
-    public function mount()
+    public function mount($identifier = 'images')
     {
-        $this->images = Item::where('privacy', 1)->where('type', 1)->get();
-        $this->videos = Item::where('privacy', 1)->where('type', 2)->get();
+        $this->identifier = $identifier;
+
+        if($identifier == 'images'){
+            $this->images = Item::where('privacy', 1)->where('type', 1)->get();
+        }else{
+            $this->videos = Item::where('privacy', 1)->where('type', 2)->get();
+        }
     }
 
     public function render()

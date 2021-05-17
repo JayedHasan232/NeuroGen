@@ -51,7 +51,7 @@ Route::namespace('App\Http\Livewire')->group(function()
         Route::get('blog/{url}', Blog\Show::class)->name('blog.show');
         
         // Gallery
-        Route::get('gallery', Gallery::class)->name('gallery');
+        Route::get('gallery/{identifier?}', Gallery::class)->name('gallery');
 
         Route::get('career', Career::class)->name('career');
         Route::get('appointment', Appointment::class)->name('appointment');

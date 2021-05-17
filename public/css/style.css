@@ -139,9 +139,6 @@ a:hover {
 .uni-uppercase {
   text-transform: uppercase; }
 
-.uni-background-1 {
-  background: url("../images/banner/background1.png"); }
-
 .is-sticky {
   position: relative;
   z-index: 9999; }
@@ -2343,7 +2340,7 @@ a:hover {
 
 /*GALLERY*/
 .uni-gallery-body {
-  padding: 100px 0; }
+  padding: 25px 0; }
   .uni-gallery-body .uni-shortcode-tabs-default .tabbable-line > .tab-content {
     padding-top: 60px; }
   .uni-gallery-body .item-img {

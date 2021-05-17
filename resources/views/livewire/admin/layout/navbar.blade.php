@@ -2,7 +2,7 @@
     <div class="{{ env('BS_CONTAINER') }}">
 
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="logo" src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
+            <img class="logo" src="{{ asset('storage/' . $info->logo) }}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

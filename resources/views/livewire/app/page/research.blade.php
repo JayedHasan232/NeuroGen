@@ -1,5 +1,5 @@
 <div>
-    <div class="uni-banner-default uni-background-1">
+    <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat;">
         <div class="container">
             <!-- Page title -->
             <div class="page-title">
@@ -11,7 +11,7 @@
 
             <!-- Breadcrumbs -->
             <ul class="breadcrumbs">
-                <li><a href="#">home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Research</a></li>
             </ul>
             <!-- End breadcrumbs -->
@@ -46,6 +46,11 @@
                                         {{ $research->overview }}
                                     </p>
                                     <a href="{{ asset('storage/' . $research->source) }}" class="readmore" target="_blank">Read More</a>
+                                    @auth()
+                                        @if(Auth::user()->role != 0)
+                                            <a href="{{ route('admin.research.edit', $research->id) }}" class="readmore" target="_blank" title="Only admin or modarator can see this.">Edit</a>
+                                        @endif
+                                    @endauth
                                 </div>
                             </div>
                         </div>

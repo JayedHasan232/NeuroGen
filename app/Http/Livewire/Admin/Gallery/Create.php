@@ -14,7 +14,7 @@ class Create extends Component
     public $privacy = 1;
     public $type = 1;
     public $title;
-    public $image;
+    public $images;
     public $video_link;
 
     public function store()
@@ -22,12 +22,11 @@ class Create extends Component
         $this->validate([
             'privacy' => 'required',
             'type' => 'required',
-            'title' => 'string',
         ]);
 
         if($this->type == 1){
             $this->validate([
-                'image' => 'required|image',
+                'images.*' => 'required|image',
             ]);
         }else{
             $this->validate([
@@ -35,18 +34,29 @@ class Create extends Component
             ]);
         }
 
-        $gallery = Gallery::create([
-            'privacy' => $this->privacy,
-            'type' => $this->type,
-            'title' => $this->title,
-            'source' => $this->video_link,
-            'created_by' => auth()->id(),
-            'created_at' => now(),
-        ]);
+        if($this->type == 1){
+        
+            foreach ($this->images as $image) {
 
-        if($gallery && $this->image){
-            $gallery->source = $this->image->store('images/gallery');
-            $gallery->save();
+                Gallery::create([
+                    'privacy' => $this->privacy,
+                    'type' => $this->type,
+                    'title' => $this->title,
+                    'source' => $image->store('images/gallery'),
+                    'created_by' => auth()->id(),
+                    'created_at' => now(),
+                ]);
+            }
+            
+        }else{
+            Gallery::create([
+                'privacy' => $this->privacy,
+                'type' => $this->type,
+                'title' => $this->title,
+                'source' => $this->video_link,
+                'created_by' => auth()->id(),
+                'created_at' => now(),
+            ]);
         }
             
         $this->reset();

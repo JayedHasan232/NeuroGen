@@ -6,7 +6,7 @@
                     <!--LOGO-->
                     <div class="wrapper-logo">
                         <a class="logo-default" href="/">
-                            <img src="/images/logo.png" alt="" class="img-responsive">
+                            <img src="{{ asset('storage/' . $info->logo) }}" alt="Logo" class="img-responsive">
                         </a>
                         <div class="clearfix"></div>
                     </div>
@@ -50,7 +50,13 @@
                                     </li>
                                     <li><a href="{{ route('app.research') }}">Research</a></li>
                                     <li><a href="{{ route('app.blog') }}">Blog</a> </li>
-                                    <li><a href="{{ route('app.gallery') }}">Gallery</a></li>
+                                    <li class="has-sub">
+                                        <a href="#">Gallery</a>
+                                        <ul>
+                                            <li><a href="{{ route('app.gallery', 'images') }}">Images</a></li>
+                                            <li><a href="{{ route('app.gallery', 'videos') }}">Videos</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="{{ route('app.career') }}">Career</a> </li>
                                 </ul>
                             </div>

@@ -3,62 +3,92 @@
 namespace App\Http\Livewire\Admin\Blog;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 use Str;
-
-// Models
-use App\Models\ProductBrand as Brand;
-use App\Models\ProductCategory as Category;
-use App\Models\ProductSubCategory as SubCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory as Category;
+use App\Models\BlogSubCategory as SubCategory;
 
 class Create extends Component
 {
-    public $brands;
+    use WithFileUploads;
+    
     public $categories;
-    public $sub_categories = [];
+    public $subcategories = [];
 
     public $title;
-    public $meta_title;
     public $url;
-    
-    public $brand;
+    public $privacy = 1;
     public $category;
-    public $sub_category;
-    
-    public $description;
+    public $subcategory;
+    public $image;
+    public $article;
+    public $meta_title;
     public $meta_description;
+    public $meta_keywords;
+    public $tags;
 
     public function mount()
     {
-        $this->brands = Brand::where('privacy', 1)
-                            ->select('id', 'title')
-                            ->orderBy('title')
-                            ->get();
-                            
-        $this->categories = Category::where('privacy', 1)
-                            ->select('id', 'title')
-                            ->orderBy('title')
-                            ->get();
+        $this->categories = Category::where('privacy', 1)->get();
     }
 
     public function updatedTitle()
     {
-        $this->meta_title = $this->title;
         $this->url = Str::slug($this->title);
+        $this->meta_title = $this->title;
     }
-    
+
     public function updatedCategory()
     {
-        $this->sub_categories = SubCategory::where('privacy', 1)
-        ->where('category_id', $this->category)
-        ->select('id', 'title')
-        ->orderBy('title')
-        ->get();
+        if($this->category){
+            $this->subcategories = Category::find($this->category)->subcategories()->where('privacy', 1)->get();
+        }else{
+            $this->subcategories = [];
+        }
     }
-    
-    public function updatedDescription()
+
+    public function updatedTags()
     {
-        $this->meta_description = $this->description;
+        $this->meta_keywords = $this->tags;
+    }
+
+    public function store()
+    {
+        $this->validate([
+            'title' => 'required|string',
+            'url' => 'required|string',
+            'privacy' => 'required',
+            'image' => 'required|image',
+            'category' => 'required',
+            'article' => 'required|string',
+        ]);
+
+        $blog = Blog::create([
+            'privacy' => $this->privacy,
+            'category_id' => $this->category,
+            'sub_category_id' => $this->subcategory,
+            'title' => $this->title,
+            'url' => $this->url,
+            'article' => $this->article,
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+            'meta_keywords' => $this->meta_keywords,
+            'tags' => $this->tags,
+            'created_by' => auth()->id(),
+            'created_at' => now(),
+        ]);
+
+        if($blog && $this->image){
+            $blog->image = $this->image->store('images/blog');
+            $blog->save();
+        }
+            
+        $this->reset();
+        $this->categories = Category::where('privacy', 1)->get();
+
+        return back()->with('success', 'Success!');
     }
 
     public function render()

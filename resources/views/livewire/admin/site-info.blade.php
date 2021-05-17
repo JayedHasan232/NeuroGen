@@ -125,9 +125,36 @@
                     </span>
                 @enderror
             </div>
+            <div class="form-group col-md-4">
+                <label for="logo">Logo</label>
+                <input wire:model="logo" class="form-control @error('logo') is-invalid @enderror" type="file" name="logo" id="logo">
+                @error('logo')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-4">
+                <label for="favicon">Favicon</label>
+                <input wire:model="favicon" class="form-control @error('favicon') is-invalid @enderror" type="file" name="favicon" id="favicon">
+                @error('favicon')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-md-4">
+                <label for="header_bg">Header Background</label>
+                <input wire:model="header_bg" class="form-control @error('header_bg') is-invalid @enderror" type="file" name="header_bg" id="header_bg">
+                @error('header_bg')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
         </div>
 
-        <button type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
+        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
         
     </div>
 </form>

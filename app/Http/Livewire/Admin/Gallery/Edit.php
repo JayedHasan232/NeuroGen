@@ -38,7 +38,6 @@ class Edit extends Component
         $this->validate([
             'privacy' => 'required',
             'type' => 'required',
-            'title' => 'string',
         ]);
 
         if($this->type == 2){

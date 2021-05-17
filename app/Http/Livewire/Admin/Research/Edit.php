@@ -12,7 +12,7 @@ class Edit extends Component
 {
     use WithFileUploads;
 
-    public $item;
+    public $research;
 
     public $privacy;
     public $title;
@@ -22,12 +22,12 @@ class Edit extends Component
 
     public function mount($id)
     {
-        $this->item = Research::findOrFail($id);
+        $this->research = Research::findOrFail($id);
 
-        $this->privacy = $this->item->privacy;
-        $this->title = $this->item->title;
-        $this->date = $this->item->date;
-        $this->overview = $this->item->overview;
+        $this->privacy = $this->research->privacy;
+        $this->title = $this->research->title;
+        $this->date = $this->research->date;
+        $this->overview = $this->research->overview;
     }
 
     public function store()
@@ -38,7 +38,7 @@ class Edit extends Component
             'overview' => 'string',
         ]);
 
-        $this->item->update([
+        $this->research->update([
             'privacy' => $this->privacy,
             'title' => $this->title,
             'date' => $this->date,
@@ -49,10 +49,10 @@ class Edit extends Component
 
         if($this->file){
 
-            Storage::delete($this->item->file);
+            Storage::delete($this->research->source);
             
-            $research->source = $this->file->store('files/research');
-            $research->save();
+            $this->research->source = $this->file->store('files/research');
+            $this->research->save();
         }
 
         return back()->with('success', 'Success!');

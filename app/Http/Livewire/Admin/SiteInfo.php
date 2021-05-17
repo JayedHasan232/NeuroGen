@@ -3,12 +3,16 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
+use Storage;
 use App\Models\SiteInfo as Info;
 
 class SiteInfo extends Component
 {
-    public $name, $domain, $mobile, $email, $google_map, $address, $overview, $facebook_page, $facebook_group, $twitter, $linkedin, $youtube;
+    use WithFileUploads;
+
+    public $name, $domain, $mobile, $email, $google_map, $address, $overview, $facebook_page, $facebook_group, $twitter, $linkedin, $youtube, $logo, $favicon, $header_bg;
     
     public function mount()
     {
@@ -29,7 +33,9 @@ class SiteInfo extends Component
     }
 
     public function updateInfo()
-    {        
+    {
+        $info = Info::find(1);
+
         if(!Info::find(1)){
             Info::create([
                 'name' => $this->name,
@@ -64,6 +70,33 @@ class SiteInfo extends Component
                 'updated_by' => auth()->id(),
                 'updated_at' => now(),
             ]);
+        }
+        
+
+        if($info){
+            if($this->logo){
+
+                Storage::delete($info->logo);
+
+                $info->logo = $this->logo->store('images/resources');
+                $info->save();
+
+            }
+            if($this->favicon){
+
+                Storage::delete($info->favicon);
+
+                $info->favicon = $this->favicon->store('images/resources');
+                $info->save();
+
+            }
+            if($this->header_bg){
+
+                Storage::delete($info->header_bg);
+
+                $info->header_bg = $this->header_bg->store('images/backgrpund');
+                $info->save();
+            }
         }
 
         return back()->with('success', 'Success!');

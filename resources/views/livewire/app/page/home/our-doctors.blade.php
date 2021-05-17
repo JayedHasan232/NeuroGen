@@ -1,5 +1,5 @@
 <div class="uni-home-1-our-doctor">
-    <div class="uni-shortcode-team-2 uni-background-2">
+    <div class="uni-shortcode-team-2" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) repeat;">
         <div class="container">
 
             <div class="uni-home-title">

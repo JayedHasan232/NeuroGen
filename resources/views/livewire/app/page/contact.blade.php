@@ -1,5 +1,5 @@
 <div>
-    <div class="uni-banner-default uni-background-1">
+    <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat;">
         <div class="container">
             <!-- Page title -->
             <div class="page-title">
@@ -11,7 +11,7 @@
 
             <!-- Breadcrumbs -->
             <ul class="breadcrumbs">
-                <li><a href="#">home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Contact us</a></li>
             </ul>
             <!-- End breadcrumbs -->

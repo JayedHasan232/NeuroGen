@@ -16,10 +16,14 @@ class CreateBlogSubCategoriesTable extends Migration
         Schema::create('blog_sub_categories', function (Blueprint $table) {
             $table->id();
             $table->boolean('privacy')->default(true);
+            $table->foreignId('category_id');
             $table->string('title');
             $table->string('url');
-
-            $table->foreignId('category_id');
+            $table->text('description')->nullable();
+            
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
 
             $table->foreignId('created_by');
             $table->foreignId('updated_by')->nullable();

@@ -10,4 +10,9 @@ class BlogSubCategory extends Model
     use HasFactory;
     
     protected $guarded = [];
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'sub_category_id');
+    }
 }

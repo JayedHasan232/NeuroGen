@@ -1,5 +1,5 @@
 <div>
-    <div class="uni-banner-default uni-background-1">
+    <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat;">
         <div class="container">
             <!-- Page title -->
             <div class="page-title">
@@ -81,7 +81,7 @@
                                                     @auth()
                                                         @if(Auth::user()->role != 0)
                                                         <li>
-                                                            <a href="{{ route('admin.team.edit', $member->id) }}" target="_blank"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                            <a href="{{ route('admin.team.edit', $member->id) }}" target="_blank" title="Only admin or modarator can see this."><i class="fa fa-edit" aria-hidden="true"></i></a>
                                                         </li>
                                                         @endif
                                                     @endauth

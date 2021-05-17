@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="shortcut icon" href="{{ asset('images/Circle of Care.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('storage/' . \App\Models\SiteInfo::find(1)->favicon) }}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('plugin/bootstrap/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('plugin/bootstrap/css/bootstrap-theme.css') }}">
         <link rel="stylesheet" href="{{ asset('fonts/poppins/poppins.css') }}">
