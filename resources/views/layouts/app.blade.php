@@ -37,6 +37,8 @@
         <script src="{{ asset('js/onclick-form-popup.js') }}"></script>
         <!-- Popup end -->
 
+        @stack('stylesheets')
+
     </head>
     <body>
 

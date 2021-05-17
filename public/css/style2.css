@@ -47,4 +47,28 @@
 .header-topbar .container .social-links .list-item:hover .link {
   color: #01b636;
 }
+
+@media screen and (max-width: 767px) {
+  .header-topbar .container .social-links {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .caption {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sliderOverview {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper-logo .logo-default img {
+    height: 50px;
+  }
+}
 /*# sourceMappingURL=style2.css.map */

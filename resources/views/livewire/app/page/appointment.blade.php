@@ -1,5 +1,5 @@
 <div>
-    <div class="uni-banner-default uni-background-1">
+    <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat;">
         <div class="container">
             <!-- Page title -->
             <div class="page-title">
@@ -30,34 +30,16 @@
                                 <div class="icon">
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                 </div>
-                                <h4>opening hours</h4>
+                                <h4>Opening hours</h4>
                             </div>
                             <div class="uni-services-opinging-hours-content">
                                 <table class="table">
+                                    @foreach($opening_hours as $time)
                                     <tr>
-                                        <td>Saturday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
+                                        <td>{{ $time->day }}</td>
+                                        <td>{{ $time->from }} - {{ $time->to }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>sunday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>monday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>tuesday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>wednesday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>thursday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -67,7 +49,7 @@
 
                             <div class="uni-home-title">
                                 <h3 style="font-size: 25px">Book an appoitment</h3><hr>
-                                <h3 style="font-size: 25px">or <i class="fa fa-phone-square" style="color: green"></i><a href="tel:+8801787662575"> +8801787662575</a> for appointment</h3>
+                                <h3 style="font-size: 25px">or <i class="fa fa-phone-square" style="color: green"></i><a href="tel:+88{{ $info->mobile }}"> +88{{ $info->mobile }}</a> for appointment</h3>
                             </div>
 
                             <form action="#">
@@ -107,10 +89,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--MAP-->
-    <div class="uni-about-map">
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8865172179812!2d90.38377691449301!3d23.75142589465513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8af8d6ffffd%3A0x9ffe6afd187219fb!2sNeuroGen%20Children&#39;s%20Healthcare!5e0!3m2!1sen!2sbd!4v1612113693646!5m2!1sen!2sbd"  height="700" style="border:0" ></iframe>
     </div>
 </div>

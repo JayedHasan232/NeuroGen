@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="caption">
                         <h1 style="text-align: left">{{ $slider->title }}</h1>
-                        <p style="text-align: left">{{ $slider->overview }}</p>
+                        <p class="sliderOverview" style="text-align: left">{{ $slider->overview }}</p>
                         <a href="/{{ $slider->link }}">{{ $slider->link_title }}</a>
                     </div>
                 </div>

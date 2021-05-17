@@ -1,0 +1,21 @@
+.blog-show {
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+.blog-show .title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.blog-show .image {
+  margin: 0;
+  padding: 0;
+}
+
+.blog-show .article {
+  padding: 2em 0;
+  font-size: 1.25em;
+}
+/*# sourceMappingURL=blog.css.map */

@@ -19,10 +19,8 @@
     </div>
 
     <div class="uni-contact-us-body">
-        <!--MAP-->
-        <div class="uni-about-map">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8865172179812!2d90.38377691449301!3d23.75142589465513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8af8d6ffffd%3A0x9ffe6afd187219fb!2sNeuroGen%20Children&#39;s%20Healthcare!5e0!3m2!1sen!2sbd!4v1612113693646!5m2!1sen!2sbd"  height="700" style="border:0" ></iframe>
-        </div>
+        <!-- Map -->
+        @livewire('app.page.home.map')
 
         <div class="uni-contact-us-body-content">
             <div class="container">
@@ -68,8 +66,7 @@
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     </div>
                                     <div class="text-holder">
-                                        <p>Solid Point Karim Tower(5th Floor), Panthapath</p>
-                                        <span>Dhaka, Bangladesh</span>
+                                        <p>{{ $info->address }}</p>
                                     </div>
                                 </div>
 
@@ -86,7 +83,7 @@
                                         </div>
                                         <div class="text-holder">
                                             <p>Call Us</p>
-                                            <span>+8801787662575</span>
+                                            <span>+88{{ $info->mobile }}</span>
                                         </div>
                                     </div>
                                     <div class="item">
@@ -95,7 +92,7 @@
                                         </div>
                                         <div class="text-holder">
                                             <p>Send Email</p>
-                                            <span>info@neurogenbd.com</span>
+                                            <span>{{ $info->email }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -112,30 +109,12 @@
                             </div>
                             <div class="uni-contact-us-hours-content">
                                 <table class="table">
+                                    @foreach($opening_hours as $time)
                                     <tr>
-                                        <td>Saturday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
+                                        <td>{{ $time->day }}</td>
+                                        <td>{{ $time->from }} - {{ $time->to }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>sunday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>monday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>tuesday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>wednesday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>thursday</td>
-                                        <td>10:00 AM - 09:00 PM</td>
-                                    </tr>
+                                    @endforeach
                                 </table>
                                 <a href="#" class="book-appointment">Book appointments</a>
                             </div>

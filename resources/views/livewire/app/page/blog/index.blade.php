@@ -1,3 +1,7 @@
+@push('stylesheets')
+<link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+@endpush
+
 <div>
     <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat;">
         <div class="container">
@@ -22,30 +26,22 @@
 
         <!--Blog-->
         <div class="uni-our-services-1">
-            <div class="uni-shortcode-icons-box-5">
+            <div class="uni-shortcode-icons-box-5" style="padding-top: 2em">
                 <div class="container">
                     <div class="row">
                         @foreach($blogs as $blog)
                         <div class="col-md-4">
-                            <div class="uni-shortcode-icons-box-5-default">
-                                <div class="item-icons-title">
-                                    <div class="col-md-4 uni-clear-padding">
-                                        <div class="item-icons">
-                                            <img src="images/icons_box/icon_4/book.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 uni-clear-padding">
-                                        <div class="item-title">
-                                            <h4>{{ $blog->title }}</h4>
-                                        </div>
-                                    </div>
+                            <div class="uni-our-doctor-item-default">
+                                <div class="item-img">
+                                    <a href="{{ route('app.blog.show', $blog->url) }}">
+                                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="img-responsive">
+                                    </a>
                                 </div>
                                 <div class="item-caption">
-                                    <p>
-                                        <b>Category: {{ $blog->category->title }}</b><br>
-                                        {{ Str::limit(strip_tags($blog->article), 100, '...') }}
-                                    </p>
-                                    <a href="/" class="readmore">Read More</a>
+                                    <div class="item-caption-info" style="padding-top: .5em; padding-bottom: .5em">
+                                        <h3 style="padding-bottom: .5em">{{ $blog->title }}</h3>
+                                        <p style="padding-bottom: .5em">{{ Str::limit(strip_tags($blog->article), 100, '...') }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

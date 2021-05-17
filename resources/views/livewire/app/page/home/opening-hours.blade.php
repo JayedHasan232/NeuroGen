@@ -27,7 +27,7 @@
 
                         <div class="uni-home-title">
                             <h3>Book an appoitment</h3><hr>
-                            <h3>or <i class="fa fa-phone-square" style="color: green"></i><a href="tel:+8801787662575"> +8801787662575</a> for appointment</h3>
+                            <h3>or <i class="fa fa-phone-square" style="color: green"></i><a href="tel:+88{{ $info->mobile }}"> +88{{ $info->mobile }}</a> for appointment</h3>
                         </div>
 
                         <form action="#">

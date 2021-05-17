@@ -1133,17 +1133,20 @@ a:hover {
 .uni-banner .uni-banner-img {
   position: relative;
   min-height: 160px;
-  height: 160px; }
-  @media screen and (max-width: 767px) {
-    .uni-banner .uni-banner-img {
-      min-height: 350px; } }
-  @media screen and (max-width: 991px) and (min-width: 768px) {
-    .uni-banner .uni-banner-img {
-      min-height: 400px; } }
-  @media (min-width: 992px) {
-    .uni-banner .uni-banner-img {
-      min-height: 800px;
-      height: 800px; } }
+  height: 160px; 
+}
+@media screen and (max-width: 767px) {
+  .uni-banner .uni-banner-img {
+    min-height: 350px;
+  } 
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .uni-banner .uni-banner-img {
+    min-height: 400px; } }
+@media (min-width: 992px) {
+  .uni-banner .uni-banner-img {
+    min-height: 800px;
+    height: 800px; } }
 
 .uni-banner .content {
   position: absolute;

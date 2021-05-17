@@ -28,7 +28,7 @@ $transition: .125s;
                 border-radius: .5em;
                 overflow: hidden;
                 transition: $transition;
-    
+                
                 .link {
                     width: 30px;
                     height: 30px;
@@ -38,13 +38,45 @@ $transition: .125s;
                     align-items: center;
                     transition: $transition;
                 }
-
+                
                 &:hover{
                     background-color: #fff;
                     .link {
                         color: $color;
                     }
                 }
+            }
+
+            @media screen and (max-width: 767px){
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// .uni-banner-img{
+//     @media screen and (max-width: 767px){
+//         height: 200px!important;
+//     }
+// }
+
+.caption{
+    @media screen and (max-width: 767px){
+        width: 100%;
+    }
+}
+
+.sliderOverview{
+    @media screen and (max-width: 767px){
+        display: none;
+    }
+}
+
+.wrapper-logo{
+    .logo-default{
+        img{
+            @media screen and (max-width: 767px){
+                height: 50px;
             }
         }
     }
