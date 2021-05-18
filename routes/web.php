@@ -93,6 +93,12 @@ Route::namespace('App\Http\Livewire')->group(function()
             Route::get('edit/{id}', Edit::class)->name('edit');
         });
 
+        // Service
+        Route::namespace('Service')->name('service.')->prefix('service')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+
         // Slider
         Route::namespace('Slider')->name('slider.')->prefix('slider')->group(function(){
             Route::get('create', Create::class)->name('create');
@@ -126,6 +132,16 @@ Route::namespace('App\Http\Livewire')->group(function()
         
         // Research
         Route::namespace('Research')->name('research.')->prefix('research')->group(function(){
+            Route::get('create', Create::class)->name('create');
+            Route::get('edit/{id}', Edit::class)->name('edit');
+        });
+        
+        // About
+        Route::get('about', About::class)->name('about');
+        
+        
+        // Text
+        Route::namespace('Text')->name('text.')->prefix('text')->group(function(){
             Route::get('create', Create::class)->name('create');
             Route::get('edit/{id}', Edit::class)->name('edit');
         });

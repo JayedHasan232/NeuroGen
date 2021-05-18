@@ -5,7 +5,7 @@
 
 <form wire:submit.prevent="store" class="box">
     <div class="header">
-        Edit Post
+        Add Service
 
         @if(session('success'))
         <span class="text-success ms-2">
@@ -39,6 +39,15 @@
                 @enderror
             </div>
 
+            <div class="form-group col-md-6">
+                <label for="meta_title">Meta Title</label>
+                <input wire:model="meta_title" class="form-control @error('meta_title') is-invalid @enderror" type="text" id="meta_title" placeholder="Title">
+                @error('meta_title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <div class="form-group col-md-2">
                 <label for="privacy">Privacy</label>
                 <select wire:model="privacy" class="form-control @error('privacy') is-invalid @enderror">
@@ -51,35 +60,7 @@
                     </span>
                 @enderror
             </div>
-            <div class="form-group col-md-2">
-                <label for="category">Category</label>
-                <select wire:model="category" class="form-control @error('category') is-invalid @enderror">
-                    <option value="">Category</option>
-                    @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->title }}</option>
-                    @endforeach
-                </select>
-                @error('category')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-2">
-                <label for="subcategory">Subcategory</label>
-                <select wire:model="subcategory" class="form-control @error('subcategory') is-invalid @enderror">
-                    <option value="">Subcategory</option>
-                    @foreach($subcategories as $subcategory)
-                    <option value="{{ $subcategory->id }}">{{ $subcategory->title }}</option>
-                    @endforeach
-                </select>
-                @error('subcategory')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="image">Image</label>
                 <input wire:model="image" class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image">
                 @error('image')
@@ -88,6 +69,7 @@
                     </span>
                 @enderror
             </div>
+
             <div class="form-group col-md-12">
                 <label for="article">Article</label>
                 <textarea wire:model="article" class="form-control @error('article') is-invalid @enderror {{--tinymce--}}" type="text" name="article" id="article" placeholder="Article"></textarea>
@@ -98,30 +80,20 @@
                 @enderror
             </div>
 
-            <div class="form-group col-md-6">
-                <label for="meta_title">Meta Title</label>
-                <input wire:model="meta_title" class="form-control @error('meta_title') is-invalid @enderror" type="text" id="meta_title" placeholder="Title">
-                @error('meta_title')
+            <div class="form-group col-md-12">
+                <label for="overview">Overview</label>
+                <textarea wire:model="overview" class="form-control @error('overview') is-invalid @enderror" type="text" name="overview" id="overview" placeholder="Overview"></textarea>
+                @error('overview')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
 
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 <label for="meta_description">Meta Description</label>
                 <textarea wire:model="meta_description" class="form-control @error('meta_description') is-invalid @enderror" type="text" name="meta_description" id="meta_description" placeholder="Meta Description"></textarea>
                 @error('meta_description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="tags">Tags</label>
-                <textarea wire:model="tags" class="form-control @error('tags') is-invalid @enderror" type="text" name="tags" id="tags" placeholder="Tags"></textarea>
-                @error('tags')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -139,7 +111,7 @@
             </div>
         </div>
 
-        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Update</button>
+        <button wire:loading.remove type="submit" class="btn bg-accent rounded-pill px-5">Store</button>
         
     </div>
 </form>

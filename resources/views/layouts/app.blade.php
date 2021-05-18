@@ -57,7 +57,7 @@
                     @livewire('app.layout.top-bar')
 
                     <!-- Nav Bar -->
-                    @livewire('app.layout.nav-bar')
+                    @livewire('app.layout.navbar')
                 </header>
 
                 <!-- Main Content -->

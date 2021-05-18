@@ -9,6 +9,11 @@
             <a href="{{ route('admin.team.create') }}" class="sb-link">Team</a>
         </li>
 
+        <!-- Services -->
+        <li class="sb-item">
+            <a href="{{ route('admin.service.create') }}" class="sb-link">Services</a>
+        </li>
+
         <!-- Slider -->
         <li class="sb-item">
             <a href="{{ route('admin.slider.create') }}" class="sb-link">Slider</a>
@@ -56,6 +61,16 @@
         <!-- Research -->
         <li class="sb-item">
             <a href="{{ route('admin.research.create') }}" class="sb-link">Research</a>
+        </li>
+
+        <!-- About -->
+        <li class="sb-item" id="items">
+            <a href="{{ route('admin.about') }}" class="sb-link">About Page</a>
+        </li>
+
+        <!-- Text -->
+        <li class="sb-item" id="items">
+            <a href="{{ route('admin.text.create') }}" class="sb-link">Text Data</a>
         </li>
 
         <!-- Site Informations -->

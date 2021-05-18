@@ -90,7 +90,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="article">Article</label>
-                <textarea wire:model="article" class="form-control @error('article') is-invalid @enderror tinymce" type="text" name="article" id="article" placeholder="Article"></textarea>
+                <textarea wire:model="article" class="form-control @error('article') is-invalid @enderror {{--tinymce--}}" type="text" name="article" id="article" placeholder="Article"></textarea>
                 @error('article')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
