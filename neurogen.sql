@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 07:17 PM
+-- Generation Time: May 18, 2021 at 09:07 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `neurogen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `overview` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `circle` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_medium` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_small` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `title`, `overview`, `circle`, `image`, `image_medium`, `image_small`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'আমাদের সম্পর্কে', 'নিউরোজেনকে বলা হয়ে থাকে বাংলাদেশে জেনেটিক সায়েন্সের উন্নয়ন যাত্রায় অগ্রদূত। বহুমুখী আমাদের কার্যক্রম। আমরা অটিজমে আক্রান্ত শিশুদের মানসিক স্বাস্থ্যের উন্নয়নে বিভিন্ন ধরণের অ্যাসেসমেন্ট, থেরাপি ও জেনেটিক কাউন্সেলিং করে থাকি। সেই সাথে ব্রেস্ট ও ওভারিয়ান ক্যান্সার হওয়ার সম্ভাবনা এবং লাংস ক্যান্সার কোন জীনের ত্রুটির কারণে হয়ে থাকে তা নির্ধারণ ও নিরাময়ের কাজও করে থাকি। এছাড়াও বিভিন্ন সংক্রামক এবং দুর্লভ অসুখ হবার সম্ভাবনা নির্ণয় এবং তা থেকে প্রতিকারের উপায় নিয়ে গবেষণা করার জন্য বাংলাদেশের সর্বপ্রথম ও একমাত্র জেনেটিক টেস্টিং ল্যাবোরেটরি স্থাপন করেছে নিউরোজেন।', 'Genetic Test, Deep Clinical Assessment, Behavior Modification, Speech and Language, Occupational Therapy, Physiotherapy', 'images/pages/about/gDUOgy9GzJi9jDpyddmGYbgmZQWofGJix6vQTUOE.png', NULL, NULL, 1, 1, '2021-05-18 04:46:54', '2021-05-18 05:12:31');
 
 -- --------------------------------------------------------
 
@@ -339,7 +366,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2021_05_06_232008_create_sliders_table', 1),
 (17, '2021_05_06_232720_create_galleries_table', 1),
 (18, '2021_05_06_232646_create_blog_categories_table', 2),
-(19, '2021_05_06_232703_create_blog_sub_categories_table', 2);
+(19, '2021_05_06_232703_create_blog_sub_categories_table', 2),
+(21, '2021_05_18_100412_create_services_table', 3),
+(22, '2021_05_18_101532_create_abouts_table', 3),
+(23, '2021_05_18_102419_create_texts_table', 4);
 
 -- --------------------------------------------------------
 
@@ -416,6 +446,44 @@ INSERT INTO `research` (`id`, `privacy`, `title`, `date`, `overview`, `source`, 
 (7, 1, 'Novel mutations in actionable breast', '2019', 'Genetic testing is becoming an essential tool for breast cancer (BC) diagnosis and treatment pathway', 'files/research/0nPcGV0sBxydAAjjtfhHNLGgzo7CNPBuucHFDKDC.pdf', 1, NULL, '2021-05-17 08:49:10', '2021-05-17 08:49:11'),
 (8, 1, 'Gonadal mosaicism', 'August 2019', 'Intellectual disability (ID) is a complex condition that can impact multiple domains of development', 'files/research/UaeuHC7jsM68xRmScDLuKMveWya8GhpvEsSmE9KT.pdf', 1, 1, '2021-05-17 08:49:58', '2021-05-17 09:45:52'),
 (9, 1, 'ADVANCES IN MOLECULAR PATHOLOGY', '2020', 'Neurodevelopmental disorders (NDD) refer to a collection of rare disorders that manifest during', 'files/research/6OnQz4hTvrDX7h3VDudzmsAlRGsnWlb2CPtana2H.pdf', 1, NULL, '2021-05-17 09:46:49', '2021-05-17 09:46:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `privacy` tinyint(1) NOT NULL DEFAULT 1,
+  `position` smallint(6) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `overview` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `article` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_medium` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_small` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `privacy`, `position`, `title`, `url`, `overview`, `article`, `meta_title`, `meta_description`, `meta_keywords`, `image`, `image_medium`, `image_small`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, 'Genetic Test', 'genetic-test', 'খিঁচুনি, বিরল রোগ, মানসিক ও বিকাশজনিত সমস্যার পুরনাঙ্গ “বিজ্ঞানভিত্তিক ডায়াগনোসিসের” জন্য Genetic Test অপরিহার্য। জিনগত ত্রুটির কারণে ঘটিত রোগ শুধু মাত্র জেনেটিক টেস্টের মাধ্যমেই সুনির্দিষ্টভাবে চিহ্নিত করা সম্ভব এবং সঠিক গাইডলাইন ও চিকিৎসা দেয়া সম্ভব। ', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Genetic Test', 'খিঁচুনি, বিরল রোগ, মানসিক ও বিকাশজনিত সমস্যার পুরনাঙ্গ “বিজ্ঞানভিত্তিক ডায়াগনোসিসের” জন্য Genetic Test অপরিহার্য। জিনগত ত্রুটির কারণে ঘটিত রোগ শুধু মাত্র জেনেটিক টেস্টের মাধ্যমেই সুনির্দিষ্টভাবে চিহ্নিত করা সম্ভব এবং সঠিক গাইডলাইন ও চিকিৎসা দেয়া সম্ভব। ', NULL, 'images/service/fHbjpNfHL6dHAxDRQnr7JPGv5Zni2cITshAysvcf.jpg', NULL, NULL, 1, 1, '2021-05-18 05:31:17', '2021-05-18 05:38:47'),
+(2, 1, NULL, 'Deep Clinical Assessment', 'deep-clinical-assessment', 'শিশুদের অতিরিক্ত চঞ্চলতা, অমনোযোগ, সমবয়সীদের সাথে মিশতে না পারা বা যেকোনো মানসিক বিকাশজনিত সমস্যাগুলি চিহ্নিত করার প্রাথমিক ধাপ হচ্ছে Deep Clinical Assessment. ', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Deep Clinical Assessment', 'শিশুদের অতিরিক্ত চঞ্চলতা, অমনোযোগ, সমবয়সীদের সাথে মিশতে না পারা বা যেকোনো মানসিক বিকাশজনিত সমস্যাগুলি চিহ্নিত করার প্রাথমিক ধাপ হচ্ছে Deep Clinical Assessment. ', NULL, 'images/service/BSpUUjy9ru9UyuQZGikm95gspr6MXQB7aplTRakF.jpg', NULL, NULL, 1, NULL, '2021-05-18 06:41:35', '2021-05-18 06:41:35'),
+(3, 1, NULL, 'Behavior Modification Therapy', 'behavior-modification-therapy', 'যে সকল শিশুদের আচার-আচরণে সমস্যা দেখা যায়, চোখের দিকে তাকিয়ে কথা বলতে পারে না, নির্দেশনা অনুসরণ করতে পারে না, তাদের জন্য কার্যকরী প্রক্রিয়া হচ্ছে Behaviour Modification.', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Behavior Modification Therapy', 'যে সকল শিশুদের আচার-আচরণে সমস্যা দেখা যায়, চোখের দিকে তাকিয়ে কথা বলতে পারে না, নির্দেশনা অনুসরণ করতে পারে না, তাদের জন্য কার্যকরী প্রক্রিয়া হচ্ছে Behaviour Modification.', NULL, 'images/service/EOnEVb19MDROBfgpCdquC0TMdO2A1Z8vqrXCxCEr.jpg', NULL, NULL, 1, NULL, '2021-05-18 06:42:37', '2021-05-18 06:42:37'),
+(4, 1, NULL, 'Speech and Language Therapy', 'speech-and-language-therapy', 'Speech and Language Therapy হলো কথা ও ভাষার বিকাশের চিকিৎসা ব্যবস্থা। অটিজম ও অন্যান্য ভাষাগত সমস্যার সমাধান হচ্ছে Speech and Language Therapy.', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Speech and Language Therapy', 'Speech and Language Therapy হলো কথা ও ভাষার বিকাশের চিকিৎসা ব্যবস্থা। অটিজম ও অন্যান্য ভাষাগত সমস্যার সমাধান হচ্ছে Speech and Language Therapy.', NULL, 'images/service/64cVhiYkYc9zfAk6e6UUnbF5N4OMw0flUnEm8NXI.jpg', NULL, NULL, 1, NULL, '2021-05-18 06:43:11', '2021-05-18 06:43:11'),
+(5, 1, NULL, 'Occupational Therapy', 'occupational-therapy', 'Occupational Therapy একটি বিজ্ঞান সম্মত চিকিৎসা যা একজন ব্যক্তির শারীরিক, মানসিক, সামাজিক এবং পরিবেশগত সমস্যা দূর করার মাধ্যমে তাকে দৈনন্দিন কাজে যথাসম্ভব স্বনির্ভর করার লক্ষে অটিজম ও অন্যান্য নিউরো-ডেভেলপমেন্টাল ডিজিজের চিকিৎসা সেবা প্রদান করে থাকে। ', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Occupational Therapy', 'Occupational Therapy একটি বিজ্ঞান সম্মত চিকিৎসা যা একজন ব্যক্তির শারীরিক, মানসিক, সামাজিক এবং পরিবেশগত সমস্যা দূর করার মাধ্যমে তাকে দৈনন্দিন কাজে যথাসম্ভব স্বনির্ভর করার লক্ষে অটিজম ও অন্যান্য নিউরো-ডেভেলপমেন্টাল ডিজিজের চিকিৎসা সেবা প্রদান করে থাকে। ', NULL, 'images/service/JHcEspHbzZd7XYIPbNu1z9OR5tc0gpkHlUUBlZ3v.jpg', NULL, NULL, 1, NULL, '2021-05-18 06:48:34', '2021-05-18 06:48:34'),
+(6, 1, NULL, 'Physiotherapy', 'physiotherapy', 'যেকোনো ধরনের আঘাত ও স্নায়বিক সমস্যার কারণে শিশুদের মাংস পেশির দুর্বলতা,ভারসাম্যহীনতা. হাটতে বসতে ও চলতে দেরি করা. খিচুনির জন্য হাটতে বা বসতে দেরি করা এবং ঘাড় শক্ত বা নরম হওয়া; চলাচলের অক্ষমতাজনিত যাবতীয় সমস্যা ও গতিশীলতা বৃদ্ধির জন্য যে স্বাস্থ্য ও পুনর্বাসন সেবা প্রদান করা হয় তার নাম হলো Physiotherapy.', '<div id=\"lipsum\">\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo, dui quis pulvinar blandit, tellus dolor efficitur dui, rutrum tempus quam massa quis odio. Vivamus ullamcorper ultrices pretium. Sed luctus placerat justo, in aliquam nunc blandit ut. Suspendisse potenti. Nam at tellus id ante semper vulputate vel at nisi. Sed mattis tellus sit amet lectus facilisis, a molestie ex consequat. Morbi vel mi efficitur, eleifend nisl et, maximus elit. Nam lacinia lobortis elit vitae sodales. In vel laoreet ipsum. Donec ornare nisl sed nisl facilisis accumsan.</p>\n<p>Nullam mattis sed arcu ac luctus. Ut euismod erat sem, vitae mattis nisl elementum eget. Vivamus non urna eget ligula ultrices faucibus. Morbi ante nisl, fermentum vel turpis id, gravida dapibus nulla. Praesent bibendum tortor at mi pharetra commodo. Quisque semper a tellus quis maximus. Nullam tincidunt auctor mauris. Suspendisse aliquam massa lacus, a congue metus dictum quis. Mauris vel interdum eros, vitae sodales massa. Aliquam vel ipsum metus. Ut placerat, turpis et congue euismod, velit quam venenatis odio, sit amet fermentum lorem purus eget lectus.</p>\n<p>Vestibulum mollis eu neque nec dapibus. Nulla sollicitudin nisl ipsum, non luctus tellus interdum quis. Quisque viverra aliquam quam, dapibus luctus mi porttitor eu. Morbi eros augue, dignissim in cursus et, dapibus a eros. Praesent pharetra erat rutrum, maximus nibh lobortis, consequat dolor. Cras et auctor nisi. Pellentesque aliquam vehicula mauris, a tempor purus commodo et. Sed id turpis eu leo tempor molestie. Integer dui magna, venenatis dapibus bibendum vitae, vestibulum ac tellus. Vivamus ultrices nibh vel tellus consequat faucibus. Sed laoreet diam bibendum egestas efficitur. Aliquam erat volutpat. Etiam mollis luctus placerat. Suspendisse commodo erat a lacus dapibus iaculis non in turpis.</p>\n<p>Mauris accumsan tincidunt diam. Duis molestie eleifend venenatis. Aliquam quis nunc non velit placerat egestas in vitae enim. Mauris eget congue lorem. Nam non aliquet dolor. Morbi eu dolor tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed mi congue, cursus lorem eget, dignissim elit. Phasellus molestie, justo ac posuere aliquet, nibh sapien consectetur dui, vel viverra diam eros ut mi. Vestibulum nec augue ante. Praesent ac nisl nec orci porta faucibus. Integer placerat suscipit libero in scelerisque. Ut lectus neque, bibendum mollis velit a, euismod lobortis arcu. Nulla posuere metus turpis, sed lacinia massa pulvinar at.</p>\n<p>Proin sed erat sodales, feugiat ante sit amet, porta orci. Maecenas ut vehicula ligula, sit amet ultrices odio. Aenean ullamcorper sit amet enim et aliquet. Vestibulum vitae arcu non sem commodo mollis nec ut nibh. Aenean tempus ante tortor, ac accumsan metus egestas vel. Maecenas ac nibh velit. Integer condimentum ipsum arcu, sit amet imperdiet turpis cursus sed. Curabitur posuere sapien id purus lacinia, vitae lacinia leo semper. Vivamus accumsan laoreet tortor, vitae consequat diam aliquet vitae. Curabitur pretium aliquam magna, semper dapibus enim bibendum non. Donec et eros vitae mi vestibulum finibus eget sit amet ex. Proin eget varius ligula. Nunc pharetra consectetur eros vel aliquam. Mauris efficitur dapibus pharetra. Donec ut mauris id risus consectetur porta. Aliquam erat volutpat.</p>\n</div>', 'Physiotherapy', 'যেকোনো ধরনের আঘাত ও স্নায়বিক সমস্যার কারণে শিশুদের মাংস পেশির দুর্বলতা,ভারসাম্যহীনতা. হাটতে বসতে ও চলতে দেরি করা. খিচুনির জন্য হাটতে বা বসতে দেরি করা এবং ঘাড় শক্ত বা নরম হওয়া; চলাচলের অক্ষমতাজনিত যাবতীয় সমস্যা ও গতিশীলতা বৃদ্ধির জন্য যে স্বাস্থ্য ও পুনর্বাসন সেবা প্রদান করা হয় তার নাম হলো Physiotherapy.', NULL, 'images/service/LMpCclTD4nJYRYXEQrPco7xoYk0vUEbZHRhzl5Ga.jpg', NULL, NULL, 1, NULL, '2021-05-18 06:49:17', '2021-05-18 06:49:17');
 
 -- --------------------------------------------------------
 
@@ -540,6 +608,23 @@ INSERT INTO `teams` (`id`, `privacy`, `position`, `member_type`, `name`, `url`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `texts`
+--
+
+CREATE TABLE `texts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `identifier` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `article` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_by` bigint(20) UNSIGNED NOT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -565,6 +650,12 @@ INSERT INTO `users` (`id`, `role`, `name`, `email`, `email_verified_at`, `passwo
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `appoitments`
@@ -640,6 +731,12 @@ ALTER TABLE `research`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `site_infos`
 --
 ALTER TABLE `site_infos`
@@ -658,6 +755,12 @@ ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `texts`
+--
+ALTER TABLE `texts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -667,6 +770,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `appoitments`
@@ -720,7 +829,7 @@ ALTER TABLE `galleries`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `opening_hours`
@@ -733,6 +842,12 @@ ALTER TABLE `opening_hours`
 --
 ALTER TABLE `research`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `site_infos`
@@ -751,6 +866,12 @@ ALTER TABLE `sliders`
 --
 ALTER TABLE `teams`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `texts`
+--
+ALTER TABLE `texts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

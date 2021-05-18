@@ -2,15 +2,35 @@
 <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
 @endpush
 
-<div class="uni-our-services-1">
-    <div class="uni-shortcode-icons-box-5" style="padding-top: 2em">
-        <div class="container blog-show">
-            <h1 class="title">{{ $blog->title }}</h1>
-            <div class="image">
-                <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="img-responsive">
+<div>
+    <div class="uni-banner-default" style="background: url({{ asset('storage/' . \App\Models\SiteInfo::find(1)->header_bg) }}) no-repeat; margin-bottom: 2.5em">
+        <div class="container">
+            <!-- Page title -->
+            <div class="page-title">
+                <div class="page-title-inner">
+                    <h1>{{ $blog->title }}</h1>
+                </div>
             </div>
-            <div class="article">
-                {!! $blog->article !!}
+            <!-- End page title -->
+
+            <!-- Breadcrumbs -->
+            <ul class="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+            <!-- End breadcrumbs -->
+        </div>
+    </div>
+
+    <div class="uni-our-services-1">
+        <div class="uni-shortcode-icons-box-5" style="padding-top: 2em">
+            <div class="container blog-show">
+                <div class="image">
+                    <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" class="img-responsive">
+                </div>
+                <div class="article">
+                    {!! $blog->article !!}
+                </div>
             </div>
         </div>
     </div>

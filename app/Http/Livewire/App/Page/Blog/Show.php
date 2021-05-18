@@ -14,6 +14,7 @@ class Show extends Component
     {
         $this->blog = Blog::where('url', $url)->where('privacy', 1)->firstOrFail();
     }
+    
     public function render()
     {
         return view('livewire.app.page.blog.show')->extends('layouts.app');

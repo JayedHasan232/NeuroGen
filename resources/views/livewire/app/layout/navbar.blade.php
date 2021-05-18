@@ -24,7 +24,7 @@
                                             <li><a href="{{ route('app.contact') }}">Contact Us</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-sub"><a href='#'>Healthcare Service</a>
+                                    <li class="has-sub"><a href="{{ route('app.services') }}">Healthcare Service</a>
                                         <ul>
                                             <li class="has-sub"><a href="#">Clinics</a>
                                                 <ul>

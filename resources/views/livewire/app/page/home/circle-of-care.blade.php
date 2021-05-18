@@ -8,12 +8,12 @@
                 @foreach($services as $service)
                 <div class="col-md-4 col-sm-6">
                     <div class="uni-shortcode-icon-box-11-default">
-                        <div class="item-icons">
+                        <div class="item-icons" stye="height: 100%">
                             <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" class="img-responsive">
                         </div>
                         <div class="item-caption">
                             <h4>{{ $service->title }}</h4>
-                            <p>{{ $service->overview }} <a href="#">Read More</a></p>
+                            <p>{{ Str::limit($service->overview, 200, '...') }} <a href="{{ route('app.services.show', $service->url) }}">Read More</a></p>
                         </div>
                     </div>
                 </div>
