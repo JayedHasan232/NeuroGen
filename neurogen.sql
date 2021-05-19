@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 09:07 AM
+-- Generation Time: May 19, 2021 at 08:50 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -224,7 +224,7 @@ CREATE TABLE `faqs` (
 --
 
 INSERT INTO `faqs` (`id`, `privacy`, `position`, `question`, `answer`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'জেনেটিক টেস্ট কি?', 'মানব শরীরের প্রতিটি কোষেই রয়েছে ক্রোমোজম। এই ক্রোমোজমে থাকে অসংখ্য জিন। প্রতিটি কোষে অন্তত ২৫ হাজার জিন থাকে যা শরীরের প্রত্যেকটি কাজের বৈশিষ্টকে বহন করে। এইসকল জিনের গঠনে কোনো ত্রূটি/পরিবর্তন বা কোনো জিনের অনুপস্থিতিকেই জিনগত ত্রূটি বলা হয়। এইসকল ত্রুটি নির্ণয় করতে যেই টেস্ট করা হয় তাকেই জেনেটিক টেস্ট বলে। ', 1, NULL, '2021-05-15 10:34:25', '2021-05-15 10:34:25'),
+(1, 1, NULL, 'জেনেটিক টেস্ট কি?', 'মানব শরীরের প্রতিটি কোষেই রয়েছে ক্রোমোজম। এই ক্রোমোজমে থাকে অসংখ্য জিন। প্রতিটি কোষে অন্তত ২৫ হাজার জিন থাকে যা শরীরের প্রত্যেকটি কাজের বৈশিষ্টকে বহন করে। এইসকল জিনের গঠনে কোনো ত্রূটি/পরিবর্তন বা কোনো জিনের অনুপস্থিতিকেই জিনগত ত্রূটি বলা হয়। এইসকল ত্রুটি নির্ণয় করতে যেই টেস্ট করা হয় তাকেই জেনেটিক টেস্ট বলে। ', 1, 1, '2021-05-15 10:34:25', '2021-05-19 05:14:46'),
 (2, 1, NULL, 'জেনেটিক টেস্টটি কিভাবে করা হয়?', 'জেনেটিক টেস্টের জন্য রোগীর রক্ত নমুনা হিসেবে নেয়া হয়ে থাকে।', 1, NULL, '2021-05-15 10:35:42', '2021-05-15 10:35:42'),
 (3, 1, NULL, 'জেনেটিক টেস্টের রিপোর্ট কি দেশের বাইরে নিয়ে যেতে পারবো?', 'নিউরোজেনের Genetics and Genomic Medicine Centre (GGMC) থেকে জেনেটিক টেস্টের প্রতিটি রিপোর্ট ACMG (American College Of Medical Genetics and Genomics) গাইডলাইনকে অনুসরণ করে করা হয়। এইসকল রিপোর্ট পৃথিবীর যেকোনপ্রান্তে চিকিৎসার কাজে গ্রহণযোগ্য।', 1, NULL, '2021-05-15 10:36:55', '2021-05-15 10:36:55'),
 (4, 1, NULL, 'স্পিচ থেরাপি ও অকুপেশনাল থেরাপি কতদিন দিতে হয়?', 'রোগীর প্রথম এসেসমেন্ট এর পরে থেরাপিস্ট নিজেই একটি ধারণা দিতে পারবেনা যে রোগীর কিরকম উন্নতি হতে পারে এবং কতদিন সময় লাগতে পারে। কারণ একেক রোগীর ক্ষেত্রে উন্নয়ন একেক রকম দেখা যায়।', 1, NULL, '2021-05-15 10:39:14', '2021-05-15 10:39:14'),
@@ -622,6 +622,15 @@ CREATE TABLE `texts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `texts`
+--
+
+INSERT INTO `texts` (`id`, `identifier`, `title`, `article`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'genetic-test', NULL, '<div class=\"uni-shortcode-typography-body\">\n<div class=\"container\">\n<div class=\"uni-typography-text-alight-default\">\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Molecular PCR Based Tests</h3>\n<p style=\"font-size: 18px;\"><strong>1.</strong> Beta-Thalassemia/Sickle Cell Anemia Genetic Test<br /><strong>2.</strong> DMD Deletion/Duplication Genetic Test</p>\n</div>\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Targeted Gene Panels</h3>\n<p style=\"font-size: 18px;\"><strong>1. Panel 1: </strong>NDD Panel (Epilepsy + Autism + ID + other NDDs)<br /><strong>2. Panel 2: </strong>Speech Disability Panel<br /><strong>3. Panel 3: </strong>Dystonia &amp; Parkinsonism Panel<br /><strong>4. Panel 4: </strong>Neurodegenerative Panel<br /><strong>5. Panel 5: </strong>Inborn Errors of Metabolism and Metabolic Myopathy Panel<br /><strong>6. Panel 6: </strong>Hypertrophic Cardiomyopathy Screening Panel<br /><strong>7. Panel 7: </strong>Amyotrophic Lateral Sclerosis (ALS) panel<br /><strong>8. Panel 8: </strong>DMD Mutation Screening Panel<br /><strong>9. Panel 9: </strong>Cystic Fibrosis Panel<br /><strong>10. Panel 10: </strong>Wilson and Congenital Eye Disease Panel<br /><strong>11. Panel 11: </strong>Single Gene Disorder Panel<br /><strong>12. Panel 12: </strong>Cerebral Palsy Panel<br /><strong>13. Panel 13: </strong>Epilepsy Panel<br /><strong>14. Panel 14: </strong>Cancer Panel<br /><strong>15. Panel 15: </strong>Neuromuscular Panel<br /><strong>16. Panel 16: </strong>Obesity Panel<br /><strong>17. </strong>Clinical Exome Sequencing under Familial Hypercholesterolemia Panel<br /><strong>18. </strong>Clinical Exome Sequencing under Immunodeficiency Panel<br /><strong>19. </strong>Rett Syndrome Genetic Test</p>\n</div>\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Whole Exome Sequencing Test</h3>\n<p style=\"font-size: 18px;\">Whole Exome Sequencing টেস্টের মাধ্যমে মানবকোষে উপস্থিত যেকোনো ছোট বা বড় জিনগত ত্রুটি কে নির্ণয় করা সম্ভব। সকল functional region কে টার্গেট করে এই টেস্ট করা হয়, যেখানে মূলত ২২,০০০ এর বেশি জিনের স্ক্রীনিং করা হয়।</p>\n</div>\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Whole Genome Microarray</h3>\n<p style=\"font-size: 18px;\">Whole Genome Microarray টেস্টের মাধ্যমে সকল প্রকার Copy Number Variation ও ক্রোমোসোমের পরিবর্তন বা ত্রুটি শনাক্ত করা হয়।</p>\n</div>\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Whole Genome Sequencing</h3>\n<p style=\"font-size: 18px;\">Whole Genome Sequencing টেস্ট দিয়ে যেকোনো প্রকারের বিরল ও জটিল যেকোনো রোগের ত্রুটি নির্ণয় করা হয়।</p>\n</div>\n<div class=\"text-align-center\">\n<h3 class=\"text-uppercase\">Genetic Counseling</h3>\n<p style=\"font-size: 18px;\">অটিজম, খিঁচুনি এবং অন্যান্য মানসিক ও বিকাশজনিত সমস্যা ও বিভিন্ন বিরল রোগের জিনগত যে কারণগুলো থাকে এবং এর চিকিৎসা গ্রহণের আগে ও পরে কি করণীয়, তা অভিজ্ঞ জেনেটিসিস্ট এর দ্বারা গ্রহণ করাকে জেনেটিক কাউন্সেলিং বলে। ৩০ মিনিটের এর এই কাউন্সিলিং এর জন্য নির্ধারিত কোন ফি নেই।</p>\n</div>\n</div>\n</div>\n</div>', 1, NULL, '2021-05-19 06:27:18', '2021-05-19 06:27:18'),
+(2, 'deep-clinical-assessment', NULL, '<p>Psychological Assessment</p>\n<p>Autism Diagnostic Observation Schedule-2 (ADOS-2)</p>\n<p>ADHD Screening</p>\n<p>IQ Test</p>\n<p>Behavior Modification Therapy</p>', 1, NULL, '2021-05-19 06:49:08', '2021-05-19 06:49:08'),
+(3, 'therapeutics', NULL, '<p>Speech and Language Therapy</p>\n<p>Occupational Therapy</p>\n<p>Physiotherapy</p>', 1, NULL, '2021-05-19 06:48:33', '2021-05-19 06:48:33');
+
 -- --------------------------------------------------------
 
 --
@@ -871,7 +880,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `texts`
 --
 ALTER TABLE `texts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

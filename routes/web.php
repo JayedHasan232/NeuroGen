@@ -35,6 +35,10 @@ Route::namespace('App\Http\Livewire')->group(function()
         // Healthcare Services
         Route::name('healthcare.')->prefix('healthcare')->group(function()
         {
+            Route::get('genetic-test', Services\GeneticTest::class)->name('genetic-test');
+            Route::get('deep-clinical-assessment', Services\Dca::class)->name('deep-clinical-assessment');
+            Route::get('therapeutics', Services\Therapeutics::class)->name('therapeutics');
+
             Route::namespace('Team')->name('team.')->group(function()
             {
                 Route::get('{type}', Index::class)->name('index');
