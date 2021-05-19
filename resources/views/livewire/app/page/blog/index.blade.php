@@ -41,6 +41,11 @@
                                     <div class="item-caption-info" style="padding-top: .5em; padding-bottom: .5em">
                                         <h3 style="padding-bottom: .5em">{{ $blog->title }}</h3>
                                         <p style="padding-bottom: .5em">{{ Str::limit(strip_tags($blog->article), 100, '...') }}</p>
+                                        @auth()
+                                            @if(Auth::user()->role != 0)
+                                            <a href="{{ route('admin.blog.edit', $blog->id) }}" class="readmore" target="_blank" title="Only admin or modarator can see this."><i class="fa fa-edit" aria-hidden="true"></i>Edit</a>
+                                            @endif
+                                        @endauth
                                     </div>
                                 </div>
                             </div>

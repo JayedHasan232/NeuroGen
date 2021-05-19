@@ -63,6 +63,11 @@
                                                         <div class="uni-line"></div>
                                                     </div>
                                                     <p>{{ $service->overview }} <a href="{{ route('app.services.show', $service->url) }}">Read More</a></p>
+                                                    @auth()
+                                                        @if(Auth::user()->role != 0)
+                                                        <a href="{{ route('admin.service.edit', $service->id) }}" class="readmore" target="_blank" title="Only admin or modarator can see this."><i class="fa fa-edit" aria-hidden="true"></i>Edit</a>
+                                                        @endif
+                                                    @endauth
                                                 </div>
                                             </div>
                                         </div>

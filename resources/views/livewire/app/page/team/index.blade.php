@@ -90,6 +90,11 @@
                                             <td colspan="2">
                                                 <ul>
                                                     <li><a href="mailto:{{ $member->email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                                                    @auth()
+                                                        @if(Auth::user()->role != 0)
+                                                        <li><a href="{{ route('admin.team.edit', $member->id) }}" class="readmore" target="_blank" title="Only admin or modarator can see this."><i class="fa fa-edit" aria-hidden="true"></i></a></li>
+                                                        @endif
+                                                    @endauth
                                                 </ul>
                                             </td>
                                         </tr>

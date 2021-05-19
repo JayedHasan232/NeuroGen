@@ -5,7 +5,7 @@
 
 <form wire:submit.prevent="store" class="box">
     <div class="header">
-        Add Service
+        Edit Service
 
         @if(session('success'))
         <span class="text-success ms-2">

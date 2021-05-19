@@ -5,7 +5,7 @@
     <div class="auth">
 
         <a class="logo" href="{{ url('/') }}">
-            <img src="https://evaly.com.bd/static/images/logo_b&w.svg" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="{{ asset('storage/' . \App\Models\SiteInfo::find(1)->logo) }}" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <div class="box">
